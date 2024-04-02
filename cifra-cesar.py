@@ -7,7 +7,12 @@ valorValido = False
 while valorValido is not True:
     try:
         chave = int(input("Valor da chave K para deslocamento: "))
-        valorValido = True
+        if chave <= 26 and chave >= 0:
+            valorValido = True      
+            continue  
+
+        print("O valor da chave deve estar entre 0 e 26.")
+        valorValido = False
 
     except ValueError:
         print("Valor inválido.")
@@ -21,7 +26,7 @@ for letra in frase:
 
     posicao = letras.index(letra) + chave
 
-    if posicao > len(letras):
+    if posicao >= len(letras):
         posicao = posicao - len(letras)
 
     fraseCriptografada += letras[posicao]
