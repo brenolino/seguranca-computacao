@@ -32,3 +32,25 @@ for letra in frase:
     fraseCriptografada += letras[posicao]
 
 print(f"Frase criptografada = {fraseCriptografada}")
+
+# Criptoanálise
+def calcularFrequencia(texto):
+    frequencia = {}
+    totalCaracteres = len(texto.replace(" ", ""))
+    
+    for letra in texto:
+        if letra == " ":
+            continue
+
+        if letra in frequencia:
+            frequencia[letra] += 1
+
+        else:
+            frequencia[letra] = 1
+
+    for letra in frequencia:
+        frequencia[letra] /= totalCaracteres
+
+    return frequencia
+
+print(calcularFrequencia(fraseCriptografada))
