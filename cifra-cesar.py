@@ -7,7 +7,7 @@ valorValido = False
 while valorValido is not True:
     try:
         chave = int(input("Valor da chave K para deslocamento: "))
-        if chave <= 26 and chave >= 0:
+        if chave < 26 and chave >= 0:
             valorValido = True      
             continue  
 
