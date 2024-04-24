@@ -39,17 +39,15 @@ print(f"Frase criptografada = {fraseCriptografada}")
 # Contabiliza a frequencia da letra no texto.
 def calcularFrequencia(texto):
     frequencia = {}
-    totalCaracteres = len(texto.replace(" ", ""))
+    totalCaracteres = len(texto)
     
     for letra in texto:
-        if letra == " ":
-            continue
-
-        if letra in frequencia:
-            frequencia[letra] += 1
-
-        else:
-            frequencia[letra] = 1
+        if letra.isalpha():
+            letra = letra.lower()  # Converte para minúsculas
+            if letra in frequencia:
+                frequencia[letra] += 1
+            else:
+                frequencia[letra] = 1
 
     for letra in frequencia:
         frequencia[letra] /= totalCaracteres
@@ -87,4 +85,5 @@ def criptoanalise(texto):
     
     return melhorChave
 
-print("Chave de deslocamento prevista com base na frequência:", chave)
+chave_criptoanalise = criptoanalise(fraseCriptografada)
+print("Chave de deslocamento prevista com base na frequência:", chave_criptoanalise)
